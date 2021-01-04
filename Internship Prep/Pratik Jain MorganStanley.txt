@@ -1,0 +1,129 @@
+1->2->3->4->5
+
+public void rightRotate(Node root,int n){
+	int x=n-1;
+	Node curr=root;
+	Node prev=null;
+	
+	int size=0;
+	while(curr.next!=null){
+		curr=curr.next;
+		size++;
+	}//size==5;
+	curr=root;
+	int y=size;
+	prev=null;
+	while(size-x%y>=0){
+		prev=curr;
+		curr=curr.next;
+		size--;
+	}
+	
+	prev.next=null;
+	Node newHead=curr;
+	while(curr.next!=null){
+		curr=curr.next;
+	}
+	curr.next=head;
+	head=newHead;
+}
+
+
+[[0,1,1,0,1]
+,[0,1,0,1,0]
+,[0,0,0,0,1]
+,[0,1,0,0,0]]
+
+public boolean isSafe(int[][] mat,int i,int j){
+	if(i>=0 && i< mat.length && j>=0 && j< mat[0].length && mat[i][j]!=1){
+		return true;
+	return false;
+}
+
+class Pair{
+	int x,y;
+	Pair(int x,int y){
+		this.x=x;
+		this.y=y;
+	}
+}
+
+public int bfs(int[][] mat,int row,int columns){
+	
+	Queue<Pair> queue=new LinkedList<>();
+	
+	for(int i=0;i<row;i++){
+		for(int j=0;j<columns;j++){
+			if(mat[i][j]==1){
+				queue.add(new Pair(i,j));
+			}
+		}
+	}
+	
+	
+	int[] x_traversal={0,0,-1,1};
+	int[] y_traversal={-1,1,0,0}
+	
+	int count=0;
+	while(!queue.isEmpty()){
+		
+		int size=queue.size();
+		
+		for(int i=0;i<size;i++){
+			Pair pair=queue.poll();
+			for(int j=0;j<4;j++){
+				if(isSafe(mat,i+x_traversal[j],j+y_traversal[j]){
+					mat[i+x_traversal[j]][j+y_traversal[j]];
+					queue.add(new Pair(i+x_traversal[j],j+y_traversal[j]));
+				}
+			}
+		
+		}
+		
+		count++;
+		
+		boolean human=false;
+		for(int i=0;i<row;i++){
+			for(int j=0;j<columns;j++){
+				if(mat[i][j]==0){
+					human=true;
+				}
+			}
+		}
+		if(!human){
+			break;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	return count;
+
+}
+
+
+[2,7,4,1,8,1]
+[2,1,4,1,1]
+[2,1,1,1]
+[1,1,1]
+[1,0]
+[1]
+
+1.Pirority Queue 8,7,4,2,1,1
+2.a=8;b=7; 4,2,1,1,1 count++;
+3.take the last element from the binary heap array and transfer it to root and decrease the size of the heap 
+by one and hapify the heap
+4.repeat 2 and 3;
+5.abs(a-b) and insert it into the heap;
+6. if(size of priority queue==1 return count;
+
+arpita.bhatt@morganstanley.com
+
+
+
+
+
+
