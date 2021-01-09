@@ -80,30 +80,110 @@ using namespace std;
 // }
 
 // Time Complexity O(N+M)
-void solve()
-{
-    int N,M;
-    cin>>N>>M;
-    int arr[N];
-    int arr1[M];
-    for(int i=0; i<N; i++)
-    cin>>arr[i];
-    for(int j=0; j<M; j++)
-    cin>>arr1[j];
-    int i=0,j=0;
-    while(i<N && j<M)
-    {
-      if(arr[i]<arr1[j])
-      i++;
-      else if(arr[i]>arr1[j])
-      j++;
-      else
-      {
-        cout<<arr1[j++]<<" ";
-        i++;
-      }
-    }
-}
+// void solve()
+// {
+//     int N,M;
+//     cin>>N>>M;
+//     int arr[N];
+//     int arr1[M];
+//     for(int i=0; i<N; i++)
+//     cin>>arr[i];
+//     for(int j=0; j<M; j++)
+//     cin>>arr1[j];
+//     int i=0,j=0;
+//     while(i<N && j<M)
+//     {
+//       if(arr[i]<arr1[j])
+//       i++;
+//       else if(arr[i]>arr1[j])
+//       j++;
+//       else
+//       {
+//         cout<<arr1[j++]<<" ";
+//         i++;
+//       }
+//     }
+// }
+
+// Duplicates are also present in array
+// Intersection Time Complexity O(N+M) Space Complexity O(N+M);
+// void solve()
+// {
+//     int N,M;
+//     cin>>N>>M;
+//     int arr[N];
+//     int arr1[M];
+//     for(int i=0; i<N; i++)
+//     cin>>arr[i];
+//     for(int j=0; j<M; j++)
+//     cin>>arr1[j];
+//     int i=0,j=0;
+//     while(i<N && j<M)
+//     {
+//       while(i<N-1 && arr[i]==arr[i+1])
+//       {
+//         i++;
+//       }
+//       while(j<M-1 && arr1[j]==arr1[j+1])
+//       {
+//         j++;
+//       }
+//       if(arr[i]<arr1[j])
+//       i++;
+//       else if(arr[i]>arr1[j])
+//       j++;
+//       else
+//       {
+//         cout<<arr1[j++]<<" ";
+//         i++;
+//       }
+//     }
+// }
+
+// Duplicates are also present in array
+// Union TC O(N+M) Space Complexity O(N+M)
+// void solve()
+// {
+//     int N,M;
+//     cin>>N>>M;
+//     int arr[N];
+//     int arr1[M];
+//     for(int i=0; i<N; i++)
+//     cin>>arr[i];
+//     for(int j=0; j<M; j++)
+//     cin>>arr1[j];
+//     int i=0,j=0;
+//     while(i<N && j<M)
+//     {
+//       while(i<N-1 && arr[i]==arr[i+1])
+//       {
+//         i++;
+//       }
+//       while(j<M-1 && arr1[j]==arr1[j+1])
+//       {
+//         j++;
+//       }
+//       if(arr[i]<arr1[j])
+//       cout<<arr[i++]<<" ";
+//       else if(arr[i]>arr1[j])
+//       cout<<arr1[j++]<<" ";
+//       else
+//       {
+//         cout<<arr1[j++]<<" ";
+//         i++;
+//       }
+//     }
+//     while(i<N)
+//     cout<<arr[i++]<<" ";
+//     while(j<M)
+//     cout<<arr1[j++]<<" "; 
+// }
+
+// Another approach that is useful when difference between sizes of two given arrays is significant. 
+// The idea is to iterate through the shorter array and do a binary search for every element of 
+// short array in big array (note that arrays are sorted). Time complexity of this solution is O(min(mLogn, nLogm)). 
+// This solution works better than the above approach when ratio of larger length to smaller is more than logarithmic 
+// order.
 
 int main(){
     int T;
