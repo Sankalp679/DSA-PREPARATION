@@ -3,6 +3,26 @@
 #define ll long long
 using namespace std;
 
+// METHOD 1 (Using temp array)
+// Input arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2, n =7
+// 1) Store the first d elements in a temp array
+//    temp[] = [1, 2]
+// 2) Shift rest of the arr[]
+//    arr[] = [3, 4, 5, 6, 7, 6, 7]
+// 3) Store back the d elements
+//    arr[] = [3, 4, 5, 6, 7, 1, 2]
+// Time complexity : O(n)
+// Auxiliary Space : O(d)
+
+// METHOD 2 (Rotate one by one)
+// leftRotate(arr[], d, n)
+// start
+//   For i = 0 to i < d
+//     Left rotate all elements of arr[] by one
+// end
+// Time complexity : O(n * d)
+// Auxiliary Space : O(1)
+
 // Basic Approach
 // Time Complexity: O(n) As we need to iterate through all the elements
 // Auxiliary Space: O(1)
@@ -70,11 +90,11 @@ using namespace std;
 //     // print_array(v);
 // }
 
-// void right_rotate(vector<ll>v,ll d, ll n)
+// void right_rotate(vector<ll>&v,ll d, ll n)
 // {
 // //    if d is greater than length of array n;
-//  if(d>n)
-//    d=n%d;
+// 
+//  d=d%n;
 //  reverse_array(v,0,n-d-1);
 //  reverse_array(v,n-d,n-1);
 //  reverse_array(v,0,n-1);
@@ -101,72 +121,84 @@ using namespace std;
 // 	return 0;
 // }
 
-// void solve()
+// JUGGLING THEOREM
+// METHOD 3 (A Juggling Algorithm)
+// This is an extension of method 2. Instead of moving one by one, divide the array in different sets
+// where number of sets is equal to GCD of n and d and move the elements within sets.
+// If GCD is 1 as is for the above example array (n = 7 and d =2), then elements will be moved within one set only, we just start with temp = arr[0] and keep moving arr[I+d] to arr[I] and finally store temp at the right place.
+// Here is an example for n =12 and d = 3. GCD is 3 and
+// Time complexity : O(n)
+// Auxiliary Space : O(1)
+
+// #include <stdio.h>
+// #include<bits/stdc++.h>
+// #define ll long long
+// using namespace std;
+
+// void print_array(vector<ll>v)
 // {
-//     ll n;
-//     cin>>n;
-//     vector<ll>v(n);
-//     for(ll i=0; i<n; i++)
-//     {
-//         cin>>v[i];
-//     }
-//     ll a= v[n-1];
-//     for(ll i=n-1; i>0; i--)
-//     {
-//        v[i]=v[i-1];
-//     }
-//     v[0]=a;
 //     for(auto x:v)
-//     cout<<x<<" ";
+//         cout<<x<<" ";
 //     cout<<endl;
+// }
+
+// ll gcd(ll a,ll b)
+// {
+// 	if(b==0)
+// 	return a;
+// 	else
+// 	return gcd(b,a%b);
+// }
+
+// void left_rotate(vector<ll>&v, ll n, ll d)
+// {
+// 	ll sets=gcd(n,d);
+// 	for(ll i=0; i<sets; i++)
+// 	{
+// 		ll temp,j=i;
+// 		temp=v[i];
+// 		while(1)
+// 		{
+// 			ll temp1=j;
+// 			j=(d+j)%n;
+// 			if(j==i)
+// 			{
+// 				v[temp1]=temp;
+// 				break;
+// 			}
+// 			else
+// 			v[temp1]=v[j];
+// 		}
+// 	}
 // }
 
 // void solve()
 // {
-//     ll n;
-//     cin>>n;
+//     ll n,d;
+//     cin>>n>>d;
 //     vector<ll>v(n);
 //     for(ll i=0; i<n; i++)
-//     {
 //         cin>>v[i];
-//     }
-//     ll a= v[n-1];
-//     for(ll i=n-1; i>0; i--)
-//     {
-//        v[i]=v[i-1];
-//     }
-//     v[0]=a;
-//     for(auto x:v)
-//     cout<<x<<" ";
-//     cout<<endl;
+//   left_rotate(v,n,d);
+// 	print_array(v);
 // }
 
-// void solve()
-// {
-//     ll n;
-//     cin>>n;
-//     vector<ll>v(n);
-//     for(ll i=0; i<n; i++)
-//     {
-//         cin>>v[i];
-//     }
-//     ll a= v[n-1];
-//     for(ll i=n-1; i>0; i--)
-//     {
-//        v[i]=v[i-1];
-//     }
-//     v[0]=a;
-//     for(auto x:v)
-//     cout<<x<<" ";
-//     cout<<endl;
+// int main() {
+// 	ll T;
+// 	cin>>T;
+// 	while(T--)
+// 	{
+// 	    solve();
+// 	}
+// 	return 0;
 // }
 
-int main() {
-	int T;
-	cin>>T;
-	while(T--)
-	{
-	    solve();
-	}
-	return 0;
-}
+// int main() {
+// 	int T;
+// 	cin>>T;
+// 	while(T--)
+// 	{
+// 	    solve();
+// 	}
+// 	return 0;
+// }
