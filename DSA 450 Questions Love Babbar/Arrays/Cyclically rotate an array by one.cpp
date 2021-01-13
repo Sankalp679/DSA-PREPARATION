@@ -193,12 +193,100 @@ using namespace std;
 // 	return 0;
 // }
 
-// int main() {
-// 	int T;
-// 	cin>>T;
-// 	while(T--)
-// 	{
-// 	    solve();
-// 	}
-// 	return 0;
-// }
+// Iterative Approach
+// Time Complexity O(n)
+// Auxilary Space Complexity O(1)
+// Block Swap Algorithm For Array Rotation
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+void print_array(vector<ll>v)
+{
+    for(auto x:v)
+    cout<<x<<" ";
+    cout<<endl;
+}
+
+void swap(vector<ll>&v,ll fi, ll si,ll size)
+{
+  for(ll i=0; i<size; i++)
+  {
+    ll temp;
+    temp=v[fi+i];
+    v[fi+i]=v[si+i];
+    v[si+i]=temp;
+  }
+}
+
+void left_shift(vector<ll>&v,ll d,ll n)
+{
+   if(d == 0 || d == n)
+   return;
+     ll i,j;
+     i=d;
+     j=n-d;
+     while(i!=j)
+     {
+       if(i<j)
+       {
+         swap(v,d-i,d+j-i,i);
+         j-=i;
+       }
+       else
+       {
+         swap(v,d-i,d,j);
+         i-=j;
+       }
+      print_array(v);
+     }
+     swap(v,d-i,d,i);
+}
+
+void right_shift(vector<ll>&v,ll d,ll n)
+{
+  ll i,j;
+  if(d == 0 || d == n)
+  return;
+  j=d;
+  i=n-d;
+  while(i!=j)
+  {
+    if(i<j)
+    {
+      swap(v,n-d-i,n-d+j-i,i);
+      cout<<n-d-i<<" "<<n-d+j-i<<endl;
+      j-=i;       
+    }
+    else
+    {
+      swap(v,n-d-i,n-d,j);
+      i-=j;
+    }
+    print_array(v);
+  }
+  swap(v,n-d-i,n-d+j-i,i);
+}
+
+void solve()
+{
+    ll n,d;
+    cin>>n>>d;
+    vector<ll>v(n);
+    for(ll i=0; i<n; i++)
+      cin>>v[i];
+    // left_shift(v,d,n);
+    right_shift(v,d,n);
+    print_array(v);
+}
+
+int main()
+{
+   ll t;
+   cin>>t;
+   while(t--)
+   {
+     solve();
+   }
+}
