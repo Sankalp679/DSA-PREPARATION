@@ -55,7 +55,88 @@
 // ASC O(N+M)
 
 // 2. Approach using insertion sort algorithm
+
 // a] Using proper insertion sort algorithm
+// TC O(N*M)
+// ASC O(1)
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class Solution
+// {
+// public:
+// 	void merge(int arr1[], int arr2[], int n, int m) 
+// 	{
+// 	    int i,j,last,l;
+// 	    i=n-2;
+// 	    last=arr1[i+1];
+// 	    j=m-1;
+// 	    for(int k=j; k>=0; k--)
+// 	    {
+// 	        for(l=i; l>=0; l--)
+// 	        {
+// 	            if(arr1[l]>=arr2[k])
+// 	            arr1[l+1]=arr1[l];
+// 	            else if(l!=n-2)
+// 	            {
+// 	                arr1[l+1]=arr2[k];
+// 	                arr2[k]=last;
+// 	            }
+// 	            else 
+// 	            break;
+// 	        }
+// 	        if(l==n-2 && last>arr2[k])
+// 	        {
+// 	            arr1[l+1]=arr2[k];
+// 	            arr2[k]=last;
+// 	        }
+// 	        last=arr1[i+1];
+// 	    }
+// 	}
+// };
+
+// int main() {
+//     int t;
+//     cin >> t;
+//     while (t--) {
+//         int n, m, i;
+//         cin >> n >> m;
+//         int arr1[n], arr2[m];
+//         for (i = 0; i < n; i++) {
+//             cin >> arr1[i];
+//         }
+//         for (i = 0; i < m; i++) {
+//             cin >> arr2[i];
+//         }
+//         Solution ob;
+//         ob.merge(arr1, arr2, n, m);
+//         for (i = 0; i < n; i++) {
+//             cout << arr1[i] << " ";
+//         }
+//         for (i = 0; i < m; i++) {
+//             cout << arr2[i] << " ";
+//         }
+//         cout << "\n";
+//     }
+//     return 0;
+// } 
 
 // b] Using the modified insertion sort algorithm (TUF Method)
+// TC O(N)*Mlog(M)
+// ASC O(1)
+// class Solution{
+// public:
+// 	void merge(int arr1[], int arr2[], int n, int m) 
+// 	{
+// 	    for(int i=0; i<n; i++)
+// 	    {
+// 	        if(arr1[i]>arr2[0])
+// 	        {
+//     	        swap(arr1[i],arr2[0]);
+//     	        sort(arr2,arr2+m);
+// 	        }
+// 	    }
+// 	}
+// };
+
 // 3. Approach Using Gap Method (shell sort algorithm)
