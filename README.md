@@ -4,5 +4,5 @@ DSA PREPARATION
 2. Internship Certificates And Reports
 3. Updated Resume
 4. Data Structure Implementations
-5. DSA 450 Questions(LOVE BABBAR)
+5. DSA Questions(LOVE BABBAR AND STRIVER)
 6. Interview Questions
