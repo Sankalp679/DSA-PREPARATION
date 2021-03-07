@@ -25,4 +25,4 @@
 //   }
 // }
 
-// Using Sqrt Decomposition
+// Using Sqrt Decomposition ( optimal one not understood)

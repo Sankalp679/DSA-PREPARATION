@@ -67,30 +67,24 @@
 // public:
 // 	void merge(int arr1[], int arr2[], int n, int m) 
 // 	{
-// 	    int i,j,last,l;
+// 	    int i,j,l;
 // 	    i=n-2;
-// 	    last=arr1[i+1];
 // 	    j=m-1;
 // 	    for(int k=j; k>=0; k--)
 // 	    {
+//          int last=arr1[i+1];
 // 	        for(l=i; l>=0; l--)
 // 	        {
-// 	            if(arr1[l]>=arr2[k])
+// 	            if(arr1[l]>arr2[k])
 // 	            arr1[l+1]=arr1[l];
-// 	            else if(l!=n-2)
-// 	            {
-// 	                arr1[l+1]=arr2[k];
-// 	                arr2[k]=last;
-// 	            }
 // 	            else 
 // 	            break;
 // 	        }
-// 	        if(l==n-2 && last>arr2[k])
+// 	        if(l!=n-2 || last>arr2[k])
 // 	        {
 // 	            arr1[l+1]=arr2[k];
 // 	            arr2[k]=last;
 // 	        }
-// 	        last=arr1[i+1];
 // 	    }
 // 	}
 // };
