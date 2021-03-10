@@ -134,3 +134,31 @@
 // };
 
 // 3. Approach Using Gap Method (shell sort algorithm)
+
+// Shell Sort Algo
+
+// Time Complexity: Time complexity of implementation of shellsort is O(n^2). 
+// In the implementation gap is reduce by half in every iteration.
+// ShellSort is mainly a variation of Insertion Sort. 
+// In insertion sort, we move elements only one position ahead. 
+// When an element has to be moved far ahead, many movements are involved. 
+// The idea of shellSort is to allow exchange of far items. In shellSort, we make the array h-sorted for a large value of h.
+// We keep reducing the value of h until it becomes 1. 
+// An array is said to be h-sorted if all sublists of every h’th element is sorted.
+
+// void merge(int arr1[], int arr2[], int n, int m) 
+// { 
+//     for(int gap=n/2; gap>0; gap=(gap)/2) 
+//     {
+//         for(int j=gap; j<n; j++)
+//         {
+//             for(int i=j-gap; i>=0; i-=gap)
+//             {
+//                     if(arr1[i]>arr1[i+gap])
+//                     swap(arr1[i],arr1[i+gap]);
+//                     else
+//                     break;
+//             }
+//         }
+//     }
+// } 
