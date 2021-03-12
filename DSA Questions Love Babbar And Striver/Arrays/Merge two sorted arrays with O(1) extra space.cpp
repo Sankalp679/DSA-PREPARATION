@@ -162,3 +162,43 @@
 //         }
 //     }
 // } 
+
+// int nextgap(int num)
+// {
+//     if(num<=1)
+//     return 0;
+//     num = num/2 + num%2;
+//     return num;
+// }
+
+// void merge(int arr1[], int arr2[], int n, int m) 
+// { 
+//     int gap=n+m,i,j,k;
+//     i=j=k=0;
+//     for(i=nextgap(gap); i>0; i=nextgap(i))
+//     {
+//         for(j=0; j+i<n; j++)
+//         {
+//             if(arr1[j+i]<arr1[j])
+//             swap(arr1[j+i],arr1[j]);
+//         }
+        
+//         for(k=i>n?i-n:0; j<n && k<m; j++,k++)
+//         {
+//             if(arr1[j]>arr2[k])
+//             swap(arr1[j],arr2[k]);
+//         }
+        
+//         if(k<m)
+//         {
+//             for(k=0; k+i<m; k++)
+//             {
+//                 if(arr2[k+i]<arr2[k])
+//                 swap(arr2[k+i],arr2[k]);
+//             }
+//         }
+//     }
+// } 
+
+// Time Complexity:  O((n+m)log(n+m))
+// Expected Auxilliary Space: O(1)
